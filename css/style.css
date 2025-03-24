@@ -52,14 +52,37 @@ main {
     align-items: center;
     gap:20px; /* TBD */
     background-color: var(--White);
-    width: 95vw;
+    width: 90vw;
+    height: 90vh;
     padding:20px; /* TBD */
     border-radius: 20px; /* TBD */
 }
 
-h1 {
+h1,legend, label {
     color: var(--hover-grey);
     align-self: flex-start;
+}
+
+form {
+    overflow: auto;
+}
+
+fieldset {
+    border: none;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+input, textarea {
+    width:100%;
+    border-radius: 10px;
+    line-height: 2;
+    border: 1px solid var(--hover-grey);
+    padding:10px;
+    margin-top: 10px;
 }
 
 .required-error {
@@ -70,7 +93,58 @@ h1 {
     visibility: hidden;
 }
 
-/* line-height */
+#queryTypeSection {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width:100%;
+}
+
+.radioElement {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid var(--hover-grey);
+    width: 100%;
+    border-radius: 10px;
+    line-height: 2;
+    padding:10px;
+    margin-top: 10px;
+}
+
+.radioElement input {
+    width:16px;
+    border-radius: 0px;
+    line-height: 1;
+    border: 1px solid var(--text-grey);
+    margin:0px 10px 0px 20px;
+}
+
+.consentElements {
+    display: flex;
+    flex-direction: row;
+}
+
+.consentElements input {
+    width:16px;
+    margin:0px 10px 0px 20px;
+}
+
+section {
+    width: 100%;
+}
+
+#submit-button {
+    color: var(--White);
+    background-color: var(--main-green);
+    border: none;
+    border-radius: 10px;
+    padding:20px;
+    width: 100%;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+
 
 /* :required */
 

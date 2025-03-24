@@ -18,6 +18,7 @@
           <legend hidden>Contact form</legend>
           <section id="firstNameSection">
             <label for="firstName">First Name</label> <!-- mettre un pseudo after avec * en vert  -->
+            <br> 
             <input  type="text"
                     id="firstName"
                     name="firstName"
@@ -31,7 +32,8 @@
           </section>
 
           <section id="lastNameSection">
-            <label for="lastName">Last Name</label> <!-- mettre un pseudo after avec * en vert  -->
+            <label for="lastName">Last Name</label><!-- mettre un pseudo after avec * en vert  -->
+            <br>
             <input  type="text"
                     id="lastName"
                     name="lastName"
@@ -46,6 +48,7 @@
 
           <section id="emailSection">
             <label for="email">Email Address</label> <!-- mettre un pseudo after avec * en vert  -->
+            <br>
             <input  type="email"
                     id="email"
                     name="email"
@@ -60,7 +63,8 @@
           </section>
 
           <section id="queryTypeSection">
-            <legend>Query Type</legent> <!-- mettre un pseudo after avec * en vert  --> 
+            <label for="">Query Type</label><!-- mettre un pseudo after avec * en vert  --> 
+            <div class="radioElement">
               <input  type="radio"
                       id="generalEnquiry"
                       name="queryType"
@@ -69,6 +73,8 @@
                       aria-describedby="query-required"
                       required>
               <label for="generalEnquiry">General Enquiry</label>
+            </div>
+            <div class="radioElement">
               <input  type="radio"
                       id="supportRequest"
                       name="queryType"
@@ -77,15 +83,16 @@
                       aria-describedby="query-required"
                       required>
               <label for="supportRequest">Support Request</label>
-              <span id="query-required" class="required-error">Please select a query type</span>
+            </div>
+            <span id="query-required" class="required-error">Please select a query type</span>
           </section>
 
           <section id="messageSection">
             <label for="message">Message</label> <!-- mettre un pseudo after avec * en vert  -->
+            <br>
             <textarea  type="textarea"
                     id="message"
                     name="message"
-                    placeholder="Enter you message here ..."
                     aria-invalid="true"
                     aria-describedby="message-required"
                     minlength="1"
@@ -96,20 +103,20 @@
           </section>
 
           <section id="consentSection">
-            <label for="consent">
+            <div class="consentElements">
               <input  type="checkbox"
-                      id="consent"
-                      name="consent"
-                      value="accepted"
-                      aria-invalid="true"
-                      aria-describedby="consent-required"
-                      required>
-              I consent to being contacted by the team
-            </label>
+              id="consent"
+              name="consent"
+              value="accepted"
+              aria-invalid="true"
+              aria-describedby="consent-required"
+              required>
+              <label for="consent">I consent to being contacted by the team</label>
+            </div>
             <span id="consent-required" class="required-error">To submit this form, please consent to being contacted</span>
           </section>
 
-          <button>Submit</button>
+          <button id="submit-button">Submit</button>
         </fieldset>
       </form>
       
