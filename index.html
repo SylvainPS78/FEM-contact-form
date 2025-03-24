@@ -24,8 +24,8 @@
                     placeholder="Ex: John"
                     aria-invalid="true"
                     aria-describedby="first-name-required"
+                    pattern="[A-Za-z]{1,}"
                     required>
-                     <!-- utiliser un pattern ? -->
             <p id ="first-name-required" class="required-error" aria-live="assertive">This field is required</p>
           </section>
 
@@ -39,8 +39,8 @@
                     placeholder="Ex: Doe"
                     aria-invalid="true"
                     aria-describedby="last-name-required"
+                    pattern="[A-Za-z]{1,}"
                     required>
-                   <!-- utiliser un pattern ? -->
             <p id ="last-name-required" class="required-error" aria-live="assertive">This field is required</p>
           </section>
 
@@ -55,7 +55,6 @@
                     aria-invalid="true"
                     aria-describedby="email-required email-invalid"
                     required>
-                     <!-- utiliser un pattern ? -->
             <p id="email-required" class="required-error" aria-live="assertive">This field is required</p>
             <p id="email-invalid" class="invalid-error" aria-live="assertive">Please enter a valid email address</p>
           </section>
@@ -119,7 +118,7 @@
       </form>
       
       <div id="confirmationMessage" hidden>
-        <img>
+        <img src="./assets/images/icon-success-check.svg" alt="success check icon">
         <h2>Message Sent!</h2>
         <p>Thanks for completing the form. We'll be in touch soon!</p>
       </div>
