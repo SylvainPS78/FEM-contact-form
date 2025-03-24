@@ -8,12 +8,10 @@
     <link rel="stylesheet" href="./css/style.css">
     <title>Frontend Mentor | Contact form</title>
   </head>
-
   <body>
     <main>
       <h1>Contact Us</h1>
-
-      <form>
+      <form aria-label="Contact Form">
         <fieldset>
           <legend hidden>Contact form</legend>
           <section id="firstNameSection">
@@ -28,7 +26,7 @@
                     aria-describedby="first-name-required"
                     required>
                      <!-- utiliser un pattern ? -->
-            <span id ="first-name-required" class="required-error">This field is required</span>
+            <p id ="first-name-required" class="required-error" aria-live="assertive">This field is required</p>
           </section>
 
           <section id="lastNameSection">
@@ -43,7 +41,7 @@
                     aria-describedby="last-name-required"
                     required>
                    <!-- utiliser un pattern ? -->
-            <span id ="last-name-required" class="required-error">This field is required</span>
+            <p id ="last-name-required" class="required-error" aria-live="assertive">This field is required</p>
           </section>
 
           <section id="emailSection">
@@ -58,8 +56,8 @@
                     aria-describedby="email-required email-invalid"
                     required>
                      <!-- utiliser un pattern ? -->
-            <span id="email-required" class="required-error">This field is required</span>
-            <span id="email-invalid" class="invalid-error">Please enter a valid email address</span>
+            <p id="email-required" class="required-error" aria-live="assertive">This field is required</p>
+            <p id="email-invalid" class="invalid-error" aria-live="assertive">Please enter a valid email address</p>
           </section>
 
           <section id="queryTypeSection">
@@ -84,7 +82,7 @@
                       required>
               <label for="supportRequest">Support Request</label>
             </div>
-            <span id="query-required" class="required-error">Please select a query type</span>
+            <p id="query-required" class="required-error" aria-live="assertive">Please select a query type</p>
           </section>
 
           <section id="messageSection">
@@ -99,7 +97,7 @@
                     maxlength="1000"
                     required>
             </textarea>
-            <span id="message-required" class="required-error">This field is required</span>
+            <p id="message-required" class="required-error" aria-live="assertive">This field is required</p>
           </section>
 
           <section id="consentSection">
@@ -113,10 +111,10 @@
               required>
               <label for="consent">I consent to being contacted by the team</label>
             </div>
-            <span id="consent-required" class="required-error">To submit this form, please consent to being contacted</span>
+            <p id="consent-required" class="required-error" aria-live="assertive">To submit this form, please consent to being contacted</p>
           </section>
 
-          <button id="submit-button">Submit</button>
+          <button id="submit-button" type="submit">Submit</button>
         </fieldset>
       </form>
       
