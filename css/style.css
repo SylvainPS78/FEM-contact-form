@@ -11,15 +11,12 @@
     --White: hsl(0, 0%, 100%);
     --text-grey: hsl(186, 15%, 59%);
     --hover-grey: hsl(187, 24%, 22%);
+
+    --font-family-base: 'Karla', sans-serif;
     --fs-base: 1rem; /* 16px - for labels*/
-
-
-
-
-
-
     --fs-h1: 2rem; /* 32px */
-    --fs-question: 1rem; /* 16px */
+
+    --layout-gap:20px;
 }
 
 @font-face {
@@ -27,6 +24,7 @@
     src: url('../assets/fonts/Karla-VariableFont_wght.ttf') format('truetype-variations');
     font-weight: 400 700; 
     font-style: normal;
+    font-display: swap;
   }
   
   @font-face {
@@ -34,10 +32,11 @@
     src: url('../assets/fonts/Karla-Italic-VariableFont_wght.ttf') format('truetype-variations');
     font-weight: 400 700; 
     font-style: italic; 
+    font-display: swap;
   }
 
 body {
-    font-family: "Karla", sans-serif;
+    font-family: var(--font-family-base);
     font-weight: 400;
     background-color: var(--bckg-green);
     color: var(--text-grey);
@@ -46,7 +45,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    gap:10px; /* TBD */
+    gap:10px;
 }
 
 main {
@@ -54,16 +53,19 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap:20px; /* TBD */
+    gap: var(--layout-gap);
     background-color: var(--White);
     width: 90vw;
+    max-width: 800px;
     height: 90vh;
-    padding:20px; /* TBD */
-    border-radius: 20px; /* TBD */
+    padding:2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 form {
     width: 100%;
+    overflow: auto;
 }
 
 h1,legend, label {
@@ -81,7 +83,7 @@ fieldset {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 0.5rem;
 }
 
 input, textarea {
@@ -89,18 +91,20 @@ input, textarea {
     border-radius: 10px;
     line-height: 2;
     border: 1px solid var(--text-grey);
-    padding:10px;
-    margin-top: 10px;
+    padding:0.5rem;
+    margin-top: 0.5rem;
     font-size: var(--fs-base);
 }
 
 input:hover, textarea:hover, .radioElement:hover {
     cursor: pointer;
     border: 1px solid var(--main-green);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 #submit-button:hover{
     background-color: var(--hover-grey);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); 
 }
 
 .radioElement label:hover, .consentElements label:hover, #submit-button:hover{
@@ -109,10 +113,12 @@ input:hover, textarea:hover, .radioElement:hover {
 
 .required-error {
     visibility: hidden;
+    color: var(--color-error);
 }
 
 .invalid-error {
     visibility: hidden;
+    color: var(--color-error);
 }
 
 #queryTypeSection {
@@ -129,13 +135,13 @@ input:hover, textarea:hover, .radioElement:hover {
     width: 100%;
     border-radius: 10px;
     line-height: 2;
-    padding:10px;
-    margin-top: 10px;
+    padding:0.5rem;
+    margin-top: 0.5rem;
 }
 
 .radioElement input {
     width:16px;
-    border-radius: 0px;
+    border-radius: 50%;
     line-height: 1;
     border: 1px solid var(--text-grey);
     margin:0px 10px 0px 20px;
@@ -144,6 +150,7 @@ input:hover, textarea:hover, .radioElement:hover {
 .consentElements {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .consentElements input {
@@ -160,10 +167,11 @@ section {
     background-color: var(--main-green);
     border: none;
     border-radius: 10px;
-    padding:20px;
+    padding:1.25rem;
     width: 100%;
     font-weight: 700;
     font-size: 1.5rem;
+    transition: background-color 0.3s ease;
 }
 
 label::after {
@@ -221,31 +229,20 @@ input[type="checkbox"]:checked::after {
     background-size: contain;
 }
 
-/* :required */
-
-/* :focus */
-
-/* :user-invalid */
-
-/* @media (pointer: fine) {
-  input[type="checkbox"] {
-    width: 15px;
-    height: 15px;
-  }
-}
-
-// pointer device of limited accuracy, for example, a touch-based device
-@media (pointer: coarse) {
-  input[type="checkbox"] {
-    width: 30px;
-    height: 30px;
-  }
-}
-  */
-
-
 .attribution { font-size: 11px; text-align: center; color:var(--hover-grey)}
 .attribution a { color: hsl(228, 45%, 44%); }
+
+input:focus, textarea:focus {
+    outline: none;
+    border: 3px solid var(--main-green);
+}
+
+button:focus {      
+    border: 3px solid var(--hover-grey);
+}
+
+/* :required */
+/* :user-invalid */
 
 @media (width >= 768px) {
     body {
