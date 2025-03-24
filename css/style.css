@@ -35,8 +35,65 @@
 body {
     font-family: "Karla", sans-serif;
     font-weight: 400;
+    background-color: var(--bckg-green);
+    color: var(--text-grey);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap:10px; /* TBD */
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:20px; /* TBD */
+    background-color: var(--White);
+    width: 95vw;
+    padding:20px; /* TBD */
+    border-radius: 20px; /* TBD */
+}
 
-.attribution { font-size: 11px; text-align: center; }
+h1 {
+    color: var(--hover-grey);
+    align-self: flex-start;
+}
+
+.required-error {
+    visibility: hidden;
+}
+
+.invalid-error {
+    visibility: hidden;
+}
+
+/* line-height */
+
+/* :required */
+
+/* :focus */
+
+/* :user-invalid */
+
+/* @media (pointer: fine) {
+  input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+// pointer device of limited accuracy, for example, a touch-based device
+@media (pointer: coarse) {
+  input[type="checkbox"] {
+    width: 30px;
+    height: 30px;
+  }
+}
+  */
+
+
+.attribution { font-size: 11px; text-align: center; color:var(--hover-grey)}
 .attribution a { color: hsl(228, 45%, 44%); }

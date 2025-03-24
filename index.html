@@ -3,45 +3,126 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">   <!-- A COMPLETER 👍 -->
+    <meta name="description" content="">   <!-- A COMPLETER  -->
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
     <link rel="stylesheet" href="./css/style.css">
     <title>Frontend Mentor | Contact form</title>
   </head>
 
   <body>
+    <main>
+      <h1>Contact Us</h1>
 
-    Contact Us
+      <form>
+        <fieldset>
+          <legend hidden>Contact form</legend>
+          <section id="firstNameSection">
+            <label for="firstName">First Name</label> <!-- mettre un pseudo after avec * en vert  -->
+            <input  type="text"
+                    id="firstName"
+                    name="firstName"
+                    autocomplete="given-name"
+                    placeholder="Ex: John"
+                    aria-invalid="true"
+                    aria-describedby="first-name-required"
+                    required>
+                     <!-- utiliser un pattern ? -->
+            <span id ="first-name-required" class="required-error">This field is required</span>
+          </section>
 
-    First Name
-    This field is required
+          <section id="lastNameSection">
+            <label for="lastName">Last Name</label> <!-- mettre un pseudo after avec * en vert  -->
+            <input  type="text"
+                    id="lastName"
+                    name="lastName"
+                    autocomplete="family-name"
+                    placeholder="Ex: Doe"
+                    aria-invalid="true"
+                    aria-describedby="last-name-required"
+                    required>
+                   <!-- utiliser un pattern ? -->
+            <span id ="last-name-required" class="required-error">This field is required</span>
+          </section>
 
-    Last Name
-    This field is required
+          <section id="emailSection">
+            <label for="email">Email Address</label> <!-- mettre un pseudo after avec * en vert  -->
+            <input  type="email"
+                    id="email"
+                    name="email"
+                    autocomplete="email"
+                    placeholder="example@example.com"
+                    aria-invalid="true"
+                    aria-describedby="email-required email-invalid"
+                    required>
+                     <!-- utiliser un pattern ? -->
+            <span id="email-required" class="required-error">This field is required</span>
+            <span id="email-invalid" class="invalid-error">Please enter a valid email address</span>
+          </section>
 
-    Email Address
-    Please enter a valid email address
-    This field is required
+          <section id="queryTypeSection">
+            <legend>Query Type</legent> <!-- mettre un pseudo after avec * en vert  --> 
+              <input  type="radio"
+                      id="generalEnquiry"
+                      name="queryType"
+                      value="generalEnquiry"
+                      aria-invalid="true"
+                      aria-describedby="query-required"
+                      required>
+              <label for="generalEnquiry">General Enquiry</label>
+              <input  type="radio"
+                      id="supportRequest"
+                      name="queryType"
+                      value="supportRequest"
+                      aria-invalid="true"
+                      aria-describedby="query-required"
+                      required>
+              <label for="supportRequest">Support Request</label>
+              <span id="query-required" class="required-error">Please select a query type</span>
+          </section>
 
-    Query Type
-    General Enquiry
-    Support Request
-    Please select a query type
+          <section id="messageSection">
+            <label for="message">Message</label> <!-- mettre un pseudo after avec * en vert  -->
+            <textarea  type="textarea"
+                    id="message"
+                    name="message"
+                    placeholder="Enter you message here ..."
+                    aria-invalid="true"
+                    aria-describedby="message-required"
+                    minlength="1"
+                    maxlength="1000"
+                    required>
+            </textarea>
+            <span id="message-required" class="required-error">This field is required</span>
+          </section>
 
-    Message
-    This field is required
+          <section id="consentSection">
+            <label for="consent">
+              <input  type="checkbox"
+                      id="consent"
+                      name="consent"
+                      value="accepted"
+                      aria-invalid="true"
+                      aria-describedby="consent-required"
+                      required>
+              I consent to being contacted by the team
+            </label>
+            <span id="consent-required" class="required-error">To submit this form, please consent to being contacted</span>
+          </section>
 
-    I consent to being contacted by the team
-    To submit this form, please consent to being contacted
-
-    Submit
-
-    Message Sent!
-    Thanks for completing the form. We'll be in touch soon!
+          <button>Submit</button>
+        </fieldset>
+      </form>
+      
+      <div id="confirmationMessage" hidden>
+        <img>
+        <h2>Message Sent!</h2>
+        <p>Thanks for completing the form. We'll be in touch soon!</p>
+      </div>
+    </main>
     
     <footer class="attribution">
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-      Coded by <a href="#">Your Name Here</a>.
+      Coded by <a href="#">Sylvain Web</a>.
     </footer>
 
     <script src="./js/script.js"></script>
