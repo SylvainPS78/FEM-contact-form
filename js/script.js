@@ -29,18 +29,34 @@ const errorMessageDisplay = () => {
     const textArea = document.querySelector("textarea");
 
     textEmailInput.forEach(input => {
+        const inputName = input.name;
+        const errorMessageElement = document.getElementById(`${inputName}-error`);
+        
         if (!input.value) {
-            let inputName = input.name;
-            document.getElementById(`${inputName}-error`).textContent = `This field is required`;
-            document.getElementById(`${inputName}-error`).style.visibility = "visible";
+
+            errorMessageElement.textContent = `This field is required`;
+            errorMessageElement.style.visibility = "visible";
             input.style.border = "1px solid var(--color-error)";
             input.setAttribute("aria-invalid", "true");
             isError = true;
         }
         else if (!input.checkValidity()) {
-            let inputName = input.name;
-            document.getElementById(`${inputName}-error`).textContent = `Please enter a valid input`;
-            document.getElementById(`${inputName}-error`).style.visibility = "visible";
+            let errorMessage;
+            switch(inputName) {
+                case "email":
+                    errorMessage = 'Please enter a valid email address';
+                    break;
+                case 'firstName':
+                    errorMessage = 'Please enter a valid first name';
+                    break;
+                case 'lastName':
+                    errorMessage = 'Please enter a valid last name';
+                    break;
+                default:
+                    errorMessage = 'Please enter a valid input';
+            }
+            errorMessageElement.textContent = errorMessage;
+            errorMessageElement.style.visibility = "visible";
             input.style.border = "1px solid var(--color-error)";
             input.setAttribute("aria-invalid", "true");
             isError = true;
