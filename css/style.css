@@ -116,6 +116,7 @@ input:hover, textarea:hover, .radioElement:hover {
     visibility: hidden;
     color: var(--color-error);
     margin-bottom: 0.5rem;
+    margin-top: 0.2rem;
 }
 
 #queryTypeSection {

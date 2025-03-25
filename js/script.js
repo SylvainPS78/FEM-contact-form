@@ -3,7 +3,7 @@ const radioElements = document.querySelectorAll(".radioElement");
 const confirmationMessage = document.getElementById("confirmationMessage");
 let isError = false;
 
-const initAllErrors = () => {
+const resetErrors = () => {
     const allInputs = document.querySelectorAll("input");
     const textArea = document.querySelector("textarea");
     const errorMessages = document.querySelectorAll(".error-message");
@@ -14,8 +14,10 @@ const initAllErrors = () => {
     })
     allInputs.forEach(input => {
         input.style.border = "1px solid var(--text-grey)";
+        input.removeAttribute("aria-invalid");
     })
     textArea.style.border = "1px solid var(--text-grey)";
+    textArea.removeAttribute("aria-invalid");
     radioElements.forEach(radioInput => {
         radioInput.style.border = "1px solid var(--text-grey)"});
 }
@@ -32,6 +34,7 @@ const errorMessageDisplay = () => {
             document.getElementById(`${inputName}-error`).textContent = `This field is required`;
             document.getElementById(`${inputName}-error`).style.visibility = "visible";
             input.style.border = "1px solid var(--color-error)";
+            input.setAttribute("aria-invalid", "true");
             isError = true;
         }
         else if (!input.checkValidity()) {
@@ -39,11 +42,13 @@ const errorMessageDisplay = () => {
             document.getElementById(`${inputName}-error`).textContent = `Please enter a valid input`;
             document.getElementById(`${inputName}-error`).style.visibility = "visible";
             input.style.border = "1px solid var(--color-error)";
+            input.setAttribute("aria-invalid", "true");
             isError = true;
         }
     });
 
     if (!queryTypeSelected) {
+        document.getElementById(`queryType-error`).textContent = "Please select a query type";
         document.getElementById(`queryType-error`).style.visibility = "visible";
         radioElements.forEach((radioInput) => {
             radioInput.style.border = "1px solid var(--color-error)";
@@ -52,9 +57,10 @@ const errorMessageDisplay = () => {
     }
 
     if (!consentBoxSelected) {
-        document.getElementById(`consent-error`).textContent = "You must consent to be contacted"; // Ajout du message d'erreur spécifique
+        document.getElementById(`consent-error`).textContent = "To submit this form, please consent to be contacted";
         document.getElementById(`consent-error`).style.visibility = "visible";
         document.querySelector("#consent").style.border = "1px solid var(--color-error)";
+        document.querySelector("#consent").setAttribute("aria-invalid", "true");
         isError = true;
     }
 
@@ -62,6 +68,7 @@ const errorMessageDisplay = () => {
         document.getElementById("message-error").textContent = "This field is required";
         document.getElementById("message-error").style.visibility = "visible";
         textArea.style.border = "1px solid var(--color-error)";
+        textArea.setAttribute("aria-invalid", "true");
         isError = true;
     }
 }
@@ -74,7 +81,7 @@ const displayConfirmationMessage = () => {
 
 submitButton.addEventListener("click", (event) => {
     event.preventDefault();
-    initAllErrors();
+    resetErrors();
     errorMessageDisplay();
     displayConfirmationMessage();
 });
