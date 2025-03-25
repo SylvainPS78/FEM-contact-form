@@ -23,10 +23,10 @@
                     autocomplete="given-name"
                     placeholder="Ex: John"
                     aria-invalid="true"
-                    aria-describedby="first-name-required"
+                    aria-describedby="firstName-required firstName-invalid"
                     pattern="[A-Za-z]{1,}"
                     required>
-            <p id ="first-name-required" class="required-error" aria-live="assertive">This field is required</p>
+            <p id ="firstName-error" class="error-message" aria-live="assertive">Error Message</p>
           </section>
 
           <section id="lastNameSection">
@@ -38,10 +38,10 @@
                     autocomplete="family-name"
                     placeholder="Ex: Doe"
                     aria-invalid="true"
-                    aria-describedby="last-name-required"
+                    aria-describedby="lastName-required lastName-invalid"
                     pattern="[A-Za-z]{1,}"
                     required>
-            <p id ="last-name-required" class="required-error" aria-live="assertive">This field is required</p>
+            <p id ="lastName-error" class="error-message" aria-live="assertive">Error Message</p>
           </section>
 
           <section id="emailSection">
@@ -55,8 +55,7 @@
                     aria-invalid="true"
                     aria-describedby="email-required email-invalid"
                     required>
-            <p id="email-required" class="required-error" aria-live="assertive">This field is required</p>
-            <p id="email-invalid" class="invalid-error" aria-live="assertive">Please enter a valid email address</p>
+            <p id="email-error" class="error-message" aria-live="assertive">Error Message</p>
           </section>
 
           <section id="queryTypeSection">
@@ -81,7 +80,7 @@
                       required>
               <label for="supportRequest">Support Request</label>
             </div>
-            <p id="query-required" class="required-error" aria-live="assertive">Please select a query type</p>
+            <p id="queryType-error" class="error-message" aria-live="assertive">Error Message</p>
           </section>
 
           <section id="messageSection">
@@ -94,9 +93,8 @@
                     aria-describedby="message-required"
                     minlength="1"
                     maxlength="1000"
-                    required>
-            </textarea>
-            <p id="message-required" class="required-error" aria-live="assertive">This field is required</p>
+                    required></textarea>
+            <p id="message-error" class="error-message" aria-live="assertive">Error Message</p>
           </section>
 
           <section id="consentSection">
@@ -110,14 +108,14 @@
               required>
               <label for="consent">I consent to being contacted by the team</label>
             </div>
-            <p id="consent-required" class="required-error" aria-live="assertive">To submit this form, please consent to being contacted</p>
+            <p id="consent-error" class="error-message" aria-live="assertive">Error Message</p>
           </section>
 
           <button id="submit-button" type="submit">Submit</button>
         </fieldset>
       </form>
       
-      <div id="confirmationMessage">
+      <div id="confirmationMessage" hidden>
         <img src="./assets/images/icon-success-check.svg" alt="success check icon">
         <h2>Message Sent!</h2>
         <p>Thanks for completing the form. We'll be in touch soon!</p>
